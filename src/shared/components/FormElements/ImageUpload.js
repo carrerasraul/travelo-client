@@ -21,19 +21,42 @@ const ImageUpload = (props) => {
     fileReader.readAsDataURL(file);
   }, [file]);
 
-  const pickedHandler = (event) => {
+  const handleImageUpload = async (file) => {
+    const data = new FormData();
+    data.append('file', file);
+    data.append('upload_preset', 'photos');
+
+    try {
+      const res = await fetch(
+        'https://api.cloudinary.com/v1_1/raul703/image/upload',
+        {
+          method: 'POST',
+          body: data,
+        }
+      );
+      const image = await res.json();
+      return image.secure_url;
+    } catch (error) {
+      console.log(error);
+    }
+  };
+
+  const pickedHandler = async (event) => {
+    const files = event.target.files;
     let pickedFile;
+    let imageUrl;
     let fileIsValid = isValid;
     if (event.target.files && event.target.files.length === 1) {
       pickedFile = event.target.files[0];
       setFile(pickedFile);
       setIsValid(true);
       fileIsValid = true;
+      imageUrl = await handleImageUpload(files[0]);
     } else {
       setIsValid(false);
       fileIsValid = false;
     }
-    props.onInput(props.id, pickedFile, fileIsValid);
+    props.onInput(props.id, imageUrl, fileIsValid);
   };
 
   const pickImageHandler = () => {
