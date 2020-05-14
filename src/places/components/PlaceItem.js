@@ -19,7 +19,7 @@ const PlaceItem = (props) => {
   const [showConfirmModal, setShowConfirmModal] = useState(false);
   // Toggles opening and closing map modal
   const openMapHandler = () => setShowMap(true);
-
+  console.log(props.image);
   const closeMapHandler = () => setShowMap(false);
   // Controls warning that pops up when user clicks delete
   const showDeleteWarningHandler = () => {

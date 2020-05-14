@@ -1,0 +1,21 @@
+@import url('https://fonts.googleapis.com/css2?family=Lobster&family=Luckiest+Guy&family=Monoton&family=Permanent+Marker&display=swap');
+
+.desc {
+  text-align: center;
+  font-family: 'Lobster';
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 50px;
+  color: white;
+  text-shadow: 2px 2px black;
+}
+
+@media (min-width: 768px) {
+  .desc {
+    display: flex;
+    justify-content: center;
+    align-content: center;
+    overflow: auto;
+  }
+}
