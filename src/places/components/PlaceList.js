@@ -6,6 +6,7 @@ import Button from '../../shared/components/FormElements/Button';
 import './PlaceList.css';
 
 const PlaceList = (props) => {
+  // Error message if no cards exist for user
   if (props.items.length === 0) {
     return (
       <div className='place-list center'>
@@ -17,6 +18,7 @@ const PlaceList = (props) => {
     );
   }
 
+  // returns list of places if user has cards in PlaceItem.js
   return (
     <ul className='place-list'>
       {props.items.map((place) => (

@@ -17,6 +17,7 @@ import { AuthContext } from '../../shared/context/auth-context';
 import './Auth.css';
 
 const Auth = () => {
+  // Controls whether use is logged in to be able to autilize certain components
   const auth = useContext(AuthContext);
   const [isLoginMode, setIsLoginMode] = useState(true);
   const { isLoading, error, sendRequest, clearError } = useHttpClient();
@@ -35,6 +36,7 @@ const Auth = () => {
     false
   );
 
+  // Controls user being able to signup for an account on login Screen
   const switchModeHandler = () => {
     if (!isLoginMode) {
       setFormData(
@@ -64,6 +66,7 @@ const Auth = () => {
     setIsLoginMode((prevMode) => !prevMode);
   };
 
+  // Sumbits email/ password login after min. requirements are met
   const authSubmitHandler = async (event) => {
     event.preventDefault();
 
@@ -84,6 +87,7 @@ const Auth = () => {
       } catch (err) {}
     } else {
       try {
+        // FormData because cannot pass image as JSON
         const formData = new FormData();
         formData.append('email', formState.inputs.email.value);
         formData.append('name', formState.inputs.name.value);

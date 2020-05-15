@@ -7,49 +7,55 @@ const inputReducer = (state, action) => {
   switch (action.type) {
     case 'CHANGE':
       return {
+        // Creates copy of old state object
         ...state,
         value: action.val,
-        isValid: validate(action.val, action.validators)
+        isValid: validate(action.val, action.validators),
       };
     case 'TOUCH': {
       return {
         ...state,
-        isTouched: true
-      }
+        isTouched: true,
+      };
     }
     default:
       return state;
   }
 };
 
-const Input = props => {
+const Input = (props) => {
   const [inputState, dispatch] = useReducer(inputReducer, {
     value: props.initialValue || '',
     isTouched: false,
-    isValid: props.initialValid || false
+    isValid: props.initialValid || false,
   });
 
+  // Object destructuring
   const { id, onInput } = props;
   const { value, isValid } = inputState;
 
   useEffect(() => {
-    onInput(id, value, isValid)
+    onInput(id, value, isValid);
   }, [id, value, isValid, onInput]);
 
-  const changeHandler = event => {
+  // Triggers whenever the user enters something in input
+  const changeHandler = (event) => {
     dispatch({
       type: 'CHANGE',
       val: event.target.value,
-      validators: props.validators
+      validators: props.validators,
     });
   };
 
+  // Confirms whether user had a chance to input something into form
   const touchHandler = () => {
     dispatch({
-      type: 'TOUCH'
+      type: 'TOUCH',
     });
   };
 
+  // If element prop holds a value of input, then element will store an input element.
+  // Otherwise, it stores a text area
   const element =
     props.element === 'input' ? (
       <input
@@ -72,8 +78,9 @@ const Input = props => {
 
   return (
     <div
-      className={`form-control ${!inputState.isValid && inputState.isTouched &&
-        'form-control--invalid'}`}
+      className={`form-control ${
+        !inputState.isValid && inputState.isTouched && 'form-control--invalid'
+      }`}
     >
       <label htmlFor={props.id}>{props.label}</label>
       {element}

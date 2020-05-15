@@ -36,6 +36,7 @@ const UpdatePlace = () => {
     false
   );
 
+  // Allows user to update title and description
   useEffect(() => {
     const fetchPlace = async () => {
       try {

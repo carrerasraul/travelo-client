@@ -8,12 +8,15 @@ import Backdrop from '../UIElements/Backdrop';
 import './MainNavigation.css';
 
 const MainNavigation = (props) => {
+  // Opens side menu on mobile
   const [drawerIsOpen, setDrawerIsOpen] = useState(false);
 
+  // Controls hamburger menu opening
   const openDrawerHandler = () => {
     setDrawerIsOpen(true);
   };
 
+  // Conrtrols hamburger menu close
   const closeDrawerHandler = () => {
     setDrawerIsOpen(false);
   };

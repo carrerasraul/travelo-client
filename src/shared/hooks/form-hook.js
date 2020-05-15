@@ -1,5 +1,6 @@
 import { useCallback, useReducer } from 'react';
 
+// Ensures that we update information about inputs and overall form validity
 const formReducer = (state, action) => {
   switch (action.type) {
     case 'INPUT_CHANGE':
@@ -18,14 +19,14 @@ const formReducer = (state, action) => {
         ...state,
         inputs: {
           ...state.inputs,
-          [action.inputId]: { value: action.value, isValid: action.isValid }
+          [action.inputId]: { value: action.value, isValid: action.isValid },
         },
-        isValid: formIsValid
+        isValid: formIsValid,
       };
     case 'SET_DATA':
       return {
         inputs: action.inputs,
-        isValid: action.formIsValid
+        isValid: action.formIsValid,
       };
     default:
       return state;
@@ -35,15 +36,16 @@ const formReducer = (state, action) => {
 export const useForm = (initialInputs, initialFormValidity) => {
   const [formState, dispatch] = useReducer(formReducer, {
     inputs: initialInputs,
-    isValid: initialFormValidity
+    isValid: initialFormValidity,
   });
 
+  // No new function object is created whenever component function re-renders. AKA- Avoids an inifite loop
   const inputHandler = useCallback((id, value, isValid) => {
     dispatch({
       type: 'INPUT_CHANGE',
       value: value,
       isValid: isValid,
-      inputId: id
+      inputId: id,
     });
   }, []);
 
@@ -51,7 +53,7 @@ export const useForm = (initialInputs, initialFormValidity) => {
     dispatch({
       type: 'SET_DATA',
       inputs: inputData,
-      formIsValid: formValidity
+      formIsValid: formValidity,
     });
   }, []);
 
