@@ -1,11 +1,12 @@
-# DevConnector
-This is a social media platform for developers to network together.
+# Travel-O
+Welcome to Travel-O! Share your favorite travel destinations, museums, restaurants... ANYTHING! Snap a photo, write a 
+description and provide an address to share your favorite locations with your friends or any users around the world!
 
-Visit the live site here: https://dev-connect-client.now.sh/
+Visit the live site here: https://travel-o.web.app/
 
 DEMO CREDENTIALS:
 email address - test@test.com
-password - password
+password - travel
 
 ---
 
@@ -19,17 +20,19 @@ password - password
 ## Screenshots
 
 ### Landing
-![Landing Page](screenshots/Landing.png)
+![Landing](screenshots/Landing.png)
 
-### Developers
-![Developers Page](screenshots/Developers.png)
+### Place Card
+![Place Card](screenshots/PlaceCard.png)
 
-### Dashboard Page
-![Dashboard Page](screenshots/Dashboard.png)
+### Map Modal
+![Map Modal](screenshots/Map.png)
 
-### Posts Page
-![Posts Page](screenshots/Posts.png)
+### New Place Page
+![New Place Page](screenshots/NewPlace.png)
 
-### Profile Page
-![Profile Page](screenshots/Profile.png)
+### Login Page
+![Login Page](screenshots/Login.png)
 
+### SignUp Page
+![SignUp Page](screenshots/Signup.png)
