@@ -1,5 +1,6 @@
 # Travel-O
-This is a social media platform for developers to network together.
+Welcome to Travel-O! Share your favorite travel destinations, museums, restaurants... ANYTHING! Snap a photo, write a 
+description and provide an address to share your favorite locations with your friends or any users around the world!
 
 Visit the live site here: https://travel-o.web.app/
 
