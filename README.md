@@ -35,4 +35,4 @@ password - travel
 ![Login Page](screenshots/Login.png)
 
 ### SignUp Page
-![SignUp Page](screenshots/Signup.png)
+![SignUp Page](screenshots/signup.png)
